@@ -21,6 +21,7 @@
 
   <external-resources>
   		<file context="mantle">content/data-access-v2/resources/web/js/data-access-angular-plugin.js</file>
+      <file context="mantle">content/data-access-v2/resources/web/css/data-access-angular-plugin-styles.css</file>
   </external-resources>
 
 </plugin>
