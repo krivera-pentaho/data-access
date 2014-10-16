@@ -1,0 +1,12 @@
+<div id="{{id}}" class="pentaho-dialog message-dialog" draggable="{{id}}-title">
+	<div id="{{id}}-title" class="message-title Caption">{{messageTitle}}</div>
+	<div class="message">
+		<div ng-bind-html="content"></div>
+	</div>
+
+	<div class="button-bar">
+		<button id="ok-button" ng-show="showOk === 'true'" class="pentaho-button" ng-click="onOk()">{{text.okButton}}</button>
+		<button id="cancel-button" ng-show="showCancel === 'true'" class="pentaho-button" ng-click="onCancel()">{{text.cancelButton}}</button>
+	</div>
+</div>
+<div id="{{id}}-glasspane" class="message-dialog-glasspane glasspane" style="display:none"></div>

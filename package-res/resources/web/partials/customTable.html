@@ -1,0 +1,24 @@
+<div class="bootstrap">
+	<div class="custom-table container-fluid">
+		<div ng-show="showFilter" class="row-fluid">
+			<form class="navbar-search pull-left span12">
+				<input type="text" class="search-query" placeholder="{{text.search}}" ng-model="search"></input>
+			</form> 
+		</div>
+		<div class="row-fluid header">
+			<div class="span{{12 / headerArray.length}} header-cell cell" ng-repeat="header in headerArray">
+				<div class="resize-col" ng-mousedown="resize($event, $index)" ng-show="$index > 0"></div>
+				<p ng-click="sort($index)">
+					{{header}}
+					<div class="{{arrowButtonClass(reverses[$index])}} title-arrow"></div>
+				</p>
+			</div>
+		</div>
+
+		<div class="data-scroll-container">
+			<div class="row-fluid data {{$even ? 'even' : 'odd'}}" ng-click="select($event, $index)" ng-repeat="row in rowArray | orderBy:predicate:reverse | filter:search">
+				<div class="span{{12 / headerArray.length}} content-cell cell" title="{{cell}}" ng-repeat="cell in row">{{cell}}</div>
+			</div>
+		</div>
+	</div>
+</div>

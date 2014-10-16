@@ -1,0 +1,50 @@
+<div id="import-analysis" class="pentaho-dialog data-access-dialog angular-dialog bootstrap" draggable="import-analysis-title">
+	<div class="row-fluid">
+		<div id="import-analysis-title" class="span12 Caption angular-dialog-title">{{text.title}}</div>
+	</div>
+	<div id="import-analysis-body">
+		<div id="file-path-container" class="row-fluid">
+			<div class="span12">
+				<div class="pad-left" id="file-path-title">{{text.mondrianFile}}</div>
+				<div class="pad-left" id="uploadFileLabel">{{filePath}}</div>
+				<div class="pentaho-button" id="uploadAnalysisButton" ng-click="upload()">{{text.ellipses}}</div>
+			</div>
+		</div>
+		<div class="row-fluid" id="data-source-type-container">
+			<div class="span12">
+				<div id="available">
+					<input type="radio" id="availableRadio" name="analysisPreferencesRadioGroup" ng-click="showAvailable=true; showManual=false;"/>
+					<label for="availableRadio">{{text.selectAvailableDataSources}}</label>
+				</div>
+				<div id="manual">
+					<input type="radio" id="manualRadio" name="analysisPreferencesRadioGroup" ng-click="showAvailable=false; showManual=true;"/>
+					<label for="manualRadio">{{text.manualDataSource}}</label>
+				</div>
+			</div>
+		</div>
+		<div id="data-sources-container">
+			<div class="row-fluid" id="available-data-sources" ng-show="showAvailable">
+				<div id="data-source-title">{{text.dataSourceTitle}}</div>
+				<dropdown options="{{jdbcConnections}}"></dropdown>
+			</div>
+			<div class="row-fluid" id="manual-data-sources" ng-show="showManual">
+				<div id="manual-data-source-title">
+					{{text.manualDataSourceTitle}}
+					<div id="removeButton" class="pentaho-deletebutton image-button" ng-click="removeParameter()"></div>
+					<div id="addButton" class="pentaho-addbutton image-button" ng-click="addParameter()"></div>
+					<div id="editButton" class="pentaho-editbutton image-button" ng-click="editParameter()"></div>
+				</div>
+				<div id="data-source-parameters">
+					<customtable id="manual-parameters-table" headers="{{manualHeaders}}" rows="{{manualRows}}" on-select="manualParamSelect(event, index)"></customtable>
+				</div>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span12 button-bar">
+				<button id="importDialog_accept" class="pentaho-button disabled">{{text.okButton}}</button>
+				<button id="importDialog_cancel" class="pentaho-button" ng-click="goto('/data-access/manage-data-sources')">{{text.cancelButton}}</button>	
+			</div>
+		</div>
+	</div>
+</div>
+<messagedialog dialog-id="add-params" show-cancel="true" show-ok="true" message="{{addParamsContent}}" message-title="{{text.addParamsTitle}}" show-dialog="showAddParamsDialog" cancel-label="{{text.close}}" on-show="addParamsOnShow()" on-ok="addParamsOnOk()"></messagedialog>

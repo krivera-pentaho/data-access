@@ -1,0 +1,13 @@
+<div class="dropdown">
+	<div class="dropdown-value custom-list" ng-click="show($event)">
+		{{selectedValue}}
+		<div class="dropdown-button combo-arrow">
+			<div class="pentaho-downbutton"></div>
+		</div>
+	</div>
+	<div class="dropdown-options drop-popup">
+		<div ng-repeat="value in data track by $index" class="dropdown-item custom-list-item {{$index == selectedItemInd ? 'selected' : ''}}" ng-click="select($event, $index)">
+			{{value}}
+		</div>
+	</div>
+</div>

@@ -1,0 +1,387 @@
+.angular-dialog {
+	position: relative;
+	left: 50%;
+	top: 50%;
+
+	width: 530px;
+	min-height: 330px;
+
+	margin-left: -265px;
+	margin-top: -165px;
+}
+
+.angular-dialog .spinner {
+	position: absolute !important;
+	top: 50%;
+	left: 50%;
+}
+
+.angular-dialog .title-arrow {
+	display: inline-block;
+}
+
+.angular-dialog>.glasspane {
+	margin-left: 0px !important;
+}
+
+.angular-dialog-title {
+	text-align: center;
+	position: relative;
+	left: 0px;
+	right: 0px;
+}
+
+#manage-data-sources-data .data-scroll-container {
+	height: 145px;
+}
+
+#manage-datasource-dialog .prev {
+	position: absolute;
+	bottom: 8px;
+	right: 8px;
+}
+
+#manage-datasource-dialog .next {
+	text-align: center;
+}
+
+#manage-datasource-dialog #new-data-source-container {
+	text-align: right;
+}
+
+.angular-dialog .angular-dialog-title.Caption {
+	padding-left: 0px;
+}
+
+#import-analysis.angular-dialog {
+	width: 464px;
+	margin-left: -232px;
+
+	min-height: 300px;
+	margin-top: -150px;
+}
+
+#import-analysis #uploadFileLabel {
+	border: 1px solid #cbdde8;
+	vertical-align: middle;
+	height: 18px !important;
+	width: 365px !important;
+	overflow: hidden;
+	padding: 5px;
+	display: inline-block;
+}
+
+#import-analysis {
+	color: #777;
+}
+
+#import-analysis [name="analysisPreferencesRadioGroup"] {
+	display: inline-block;
+	margin-bottom: 3px;
+	margin-top: 0px;
+}
+
+#import-analysis label {
+	display: inline-block;
+	margin-bottom: 0px;
+}
+
+#import-analysis #uploadAnalysisButton {
+	display: inline-block;
+}
+
+#import-analysis #available, #import-analysis #manual {
+	line-height: 20px;
+}
+
+#import-analysis .button-bar {
+	text-align: right;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+.angular-dialog .pentaho-button {
+	display: inline-block;
+}
+
+#import-analysis-body {
+	padding-left: 25px;
+}
+
+#import-analysis .dropdown {
+	width: 400px;
+}
+
+#import-analysis #file-path-title, #import-analysis #file-path-container {
+	margin-bottom: 10px;
+}
+
+#import-analysis #file-path-container {
+	margin-top: 20px;
+}
+
+#import-analysis #data-source-type-container {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#import-analysis #available-data-sources {
+	margin-top: 10px;
+}
+
+#import-analysis #data-source-title {
+	margin-bottom: 10px;
+}
+
+#import-analysis #data-source-type-container #available {
+	margin-bottom: 5px;
+}
+
+#import-analysis #editButton, #import-analysis #addButton, #import-analysis #removeButton {
+	float: right;
+}
+
+#manual-parameters-table .data-scroll-container{
+	height: 119px;
+}
+
+#add-params .button-bar {
+	text-align: right;
+}
+
+#add-params .message {
+	text-align: left;
+}
+
+#add-params input {
+	width: 100%;
+}
+
+/*
+ * Message Dialog Styles
+ */
+.message-dialog {
+	display: none;
+	width: 376px;
+	min-height: 116px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -188px;
+	margin-top: -58px;
+
+	text-align: center;
+}
+
+.message-dialog .pentaho-button {
+	display: inline-block;
+}
+
+.message-dialog .message {
+	color: #777;
+	padding: 5px 10px 10px;
+}
+
+.message-dialog .button-bar {
+	margin-top: 10px;
+	padding-bottom: 10px;
+	/*width: 100%;*/
+}
+
+div.message-dialog-glasspane.glasspane {
+	margin: 0px !important;
+	left: -9999px;
+	right: -9999px;
+	bottom: -9999px;
+	top: -9999px;
+	width: auto !important;
+	height: auto !important;
+}
+
+/*
+ * Manage Data Source Settings Styles
+ */
+#manage-data-source-settings .menu {
+	display: none;
+	position: absolute;
+
+	background-color: #f9fcfd;
+	margin-top: 0px;
+	margin-left: 0px;
+	border-top: 1px solid #cbdde8;
+	border-right: 1px solid #cbdde8;
+	border-bottom: 1px solid #cbdde8;
+	border-left: 1px solid #cbdde8;
+	padding: 2px;
+}
+
+#manage-data-source-settings .menu .menu-item {
+	white-space: nowrap;
+	cursor: pointer;
+
+	color: #698492;
+	padding: 3px 20px 3px 20px;
+}
+
+#manage-data-source-settings .menu .menu-item:hover {
+	background-color: #dce7ed;
+}
+
+#manage-data-source-settings .menu .menu-item-separator {
+	margin-top: 2px;
+	margin-bottom: 2px;
+	border-top: 1px solid #cbdde8;
+}
+
+/*
+ * Dropdown Styles
+ */
+.dropdown .dropdown-options {
+	display: none;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+}
+
+.dropdown .dropdown-button {
+	width: 10px;
+	height: 8px;
+	display: inline-block;
+	float: right;
+	margin-right: 1px;
+}
+
+.dropdown .dropdown-value {
+	cursor: pointer;
+}
+
+.dropdown .dropdown-item {
+	cursor: pointer;
+}
+
+.dropdown .dropdown-item:hover {
+	background-color: #dce7ed;
+}
+
+.dropdown .dropdown-item.selected {
+	background-color: #d7e9cd;
+}
+
+/*
+ * Custom Table styles
+ */
+.custom-table .header {
+	margin-top: 10px;
+	color: #fff;
+	background-color: #8ab3c6;
+	overflow-x: hidden;
+}
+
+.custom-table .header>div {
+	text-align: left;
+	line-height: 30px;
+	white-space: nowrap;
+	background-color: #8ab3c6;	
+}
+
+.custom-table .header>div p { 
+	cursor: pointer;
+	display: inline-block;
+	margin-left: 10px;
+	margin-bottom: 0px;
+}
+
+.custom-table .data {
+	border-bottom: 1px solid #d7d7d7;
+	background-color: #fff;
+	clear: none;
+}
+
+.custom-table .data.odd {
+	background-color: #f0f0f0;
+}
+
+.custom-table .data {
+	line-height: 27px;
+}
+
+.custom-table .content-cell {
+	text-align: left;
+	padding-left: 15px;
+	overflow-x: hidden;
+	white-space: nowrap;
+	cursor: pointer;
+}
+
+.custom-table .data.selected {
+	background: #d7e9cd;
+	-moz-transition: all 600ms;
+	-webkit-transition: all 600ms;
+}
+
+.custom-table .data:hover {
+	background: #dce7ed;
+	-moz-transition: all 600ms;
+	-webkit-transition: all 600ms;
+}
+
+.custom-table .content-cell:first-child {
+	border-left: none;
+}
+
+.custom-table .content-cell, .custom-table .header-cell:first-child {
+	border-left: 1px solid #d7d7d7;
+	vertical-align: middle;
+}
+
+.custom-table .header-cell {
+	border-left: 1px solid #fff;
+}
+
+.custom-table .header .cell:last-child {
+	border-right: 1px solid #d7d7d7;
+}
+
+.custom-table .resize-col {
+	width: 5px;
+	height: 30px;
+
+	clear: none;
+	float: left;
+
+	cursor: e-resize;
+	position: relative;
+	left: -3px;
+}
+
+.custom-table .data-scroll-container {
+	overflow-y: scroll;
+
+	border-right: 1px solid #d7d7d7;
+	border-left: 1px solid #d7d7d7;
+	border-bottom: 1px solid #d7d7d7;
+}
+
+/*
+ * Transition to theme css
+ */
+#manage-data-sources-data .data.selected {
+	background: #d7e9cd;
+	-moz-transition: all 600ms;
+	-webkit-transition: all 600ms;
+}
+
+#manage-data-sources-data .data:hover {
+	background: #dce7ed;
+	-moz-transition: all 600ms;
+	-webkit-transition: all 600ms;
+}
+
+#manage-data-sources-data .type-cell {
+	border-left: 1px solid #d7d7d7;
+	vertical-align: middle;;
+}
+
+#manage-data-sources-data .header .type-cell {
+	border-left: 1px solid #fff;
+}

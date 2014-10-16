@@ -1,0 +1,15 @@
+<div id="manage-data-source-settings">
+	<div class="pentaho-optionsdatasourcebutton" ng-click="toggleDialog()"></div>
+
+	<div class="menu">
+		<div class="menu-item" ng-click="edit()">{{text.edit}}</div>
+		<div class="menu-item" ng-click="delete()">{{text.delete}}</div>
+		<div class="menu-item-separator"></div>
+		<div class="menu-item" ng-click="export()">{{text.export}}</div>
+		<div class="menu-item" ng-click="importAnalysis()">{{text.importAnalysis}}</div>
+		<div class="menu-item" ng-click="importMetadata()">{{text.importMetadata}}</div>
+		<div class="menu-item-separator"></div>
+		<div class="menu-item" ng-click="newConnection()">{{text.newConnection}}</div>
+	</div>
+</div>
+<messagedialog dialog-id="no-data-source-selected-msg" message-title="{{text.noDataSourceSelected.messageTitle}}" message="{{text.noDataSourceSelected.message}}" show-dialog="showNoDataSourceSelectedDlg" show-ok="true"></messagedialog>

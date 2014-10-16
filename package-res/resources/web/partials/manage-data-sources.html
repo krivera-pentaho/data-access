@@ -1,0 +1,26 @@
+<div id="manage-datasource-dialog" class="pentaho-dialog data-access-dialog angular-dialog bootstrap" draggable="manage-datasource-dialog-title">
+	<div class='nav-bar container-fluid'>
+		<div class="row-fluid">
+			<div id="manage-datasource-dialog-title" class="angular-dialog-title Caption span12">{{text.title}}</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+
+		<div class="row-fluid">
+			<div class="span7"></div>
+			<div class="span1">
+				<datasourcesettings></datasourcesettings>
+			</div>
+			<div id="new-data-source-container" class="span4">
+				<div ng-click="goto('/data-access/new-data-source')" class="nav-button next pentaho-button">{{text.newDataSource}}</div>
+			</div>
+		</div>
+	</div>
+
+	<customtable id="manage-data-sources-data" headers="{{dataHeaders}}" rows="{{dataRows}}" on-select="select(event, index)"></customtable>	
+
+	<div ng-click="close()" class="nav-button prev pentaho-button">{{text.prevButton}}</div>
+
+	<!-- <div class="glasspane"></div> -->
+</div>
