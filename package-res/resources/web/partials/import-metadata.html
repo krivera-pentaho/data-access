@@ -1,0 +1,36 @@
+<div class="bootstrap">
+	<div id="import-metadata" class="pentaho-dialog data-access-dialog angular-dialog import-dialog" draggable="import-metadata-title">
+		<div class="row-fluid">
+			<div id="import-metadata-title" class="Caption span12">{{text.title}}</div>
+		</div>
+		<div class="body">
+			<div class="row-fluid">
+				<div class="span12">
+					<div id="file-path-title">{{text.xmiFile}}</div>
+					<div id="uploadFileLabel">{{filePath}}</div>
+					<div class="pentaho-button" id="uploadMetadataButton" ng-click="upload()">{{text.ellipses}}</div>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+					<div id="domainIdLabel">{{text.domainId}}</div>
+					<input type="text" id="domainIdText"></input>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+					{{text.localizedBundle}}
+					<div id="removeButton" class="pentaho-deletebutton image-button" ng-click="remove()"></div>
+					<div id="addButton" class="pentaho-addbutton image-button" ng-click="add()"></div>
+				</div>
+			</div>
+			<customtable id="localized-bundles-table" headers="{{headers}}" rows="{{rows}}" on-select="onselect(event, index, item)"></customtable>
+			<div class="row-fluid">
+				<div class="span12 button-bar">
+					<button id="importDialog_accept" class="pentaho-button disabled" ng-click="okButton()">{{text.okButton}}</button>
+					<button id="importDialog_cancel" class="pentaho-button" ng-click="goto('/data-access/manage-data-sources')">{{text.cancelButton}}</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

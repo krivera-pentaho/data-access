@@ -52,8 +52,8 @@ define(deps, function(spinner, Spinner) {
 
 				ManageDataSourceService.selectedDataSource(null);
 
-				$scope.select = function($event, $index) {
-					$scope.selectedData = $scope.data[$index];
+				$scope.select = function($event, $index, $item) {
+					$scope.selectedData = {type: $item[1], value: $item[0]};//$scope.data[$index];
 					ManageDataSourceService.selectedDataSource($scope.selectedData);
 				}
 
@@ -89,6 +89,7 @@ define(deps, function(spinner, Spinner) {
 		$controllerProvider("ImportAnalysisController", ["$scope", "$timeout", "ManageDataSourceService",
 			function($scope, $timeout, ManageDataSourceService) {
 				$scope.selectedDataSource = ManageDataSourceService.selectedDataSource();
+				var editing = $scope.selectedDataSource != null && $scope.selectedDataSource.mode == "edit";
 
 				$scope.text = {};
 				$scope.text.title = "Import Analysis";
@@ -98,7 +99,7 @@ define(deps, function(spinner, Spinner) {
 				$scope.text.ellipses = "...";
 				$scope.text.selectAvailableDataSources = "Select from available data sources.";
 				$scope.text.manualDataSource = "Manually enter data source parameter values.";
-				$scope.text.okButton = "Import";
+				$scope.text.okButton = editing ? "Save" : "Import";
 				$scope.text.cancelButton = "Close";
 				$scope.text.name = "Name";
 				$scope.text.value = "Value";
@@ -107,9 +108,27 @@ define(deps, function(spinner, Spinner) {
 
 				$scope.manualHeaders = [$scope.text.name, $scope.text.value];
 				$scope.manualRows = [];
+				
+				if (editing) {
+					ManageDataSourceService.getAnalysisDatasourceInfo(function(data) {
+						var provider = "";
+						for (key in data) {
+							var item = data[key];
+							if (item.name == "Provider") {
+								provider = item.value;
+							} else {
+								$scope.manualRows.push([item.name, item.value]);	
+							}
+						}
 
-				$("#availableRadio").attr("checked", true);
-				$scope.showAvailable = true;
+						$scope.filePath = $scope.selectedDataSource.value + "." + provider + ".xml";
+					})
+				}
+
+				$scope.showAvailable = !editing;
+				$scope.showManual = !$scope.showAvailable;
+				$("#availableRadio").attr("checked", $scope.showAvailable);
+				$("#manualRadio").attr("checked", $scope.showManual);
 
 				$scope.jdbcConnections = "";
 				ManageDataSourceService.getJDBCDataSources(function(data) {
@@ -210,7 +229,91 @@ define(deps, function(spinner, Spinner) {
 						data[1] = value;
 					}
 				}
+
+				$scope.okButton = function() {
+					// Submit data for import or saving changes
+
+					$scope.goto('/data-access/manage-data-sources');
+				}
 			}]);
+
+		$controllerProvider("ImportMetadataController", ["$scope", "ManageDataSourceService", 
+			function($scope, ManageDataSourceService) {
+				$scope.selectedDataSource = ManageDataSourceService.selectedDataSource();
+				var editing = $scope.selectedDataSource != null && $scope.selectedDataSource.mode == "edit";
+
+				$scope.text = {};
+				$scope.text.title = "Import Metadata";
+				$scope.text.xmiFile = "XMI File:";
+				$scope.text.filePath = "Browse for metadata file";
+				$scope.text.ellipses = "...";
+				$scope.text.domainId = "Domain ID:";
+				$scope.text.localizedBundle = "Localized Bundles";
+				$scope.text.fileName = "File Name";
+				$scope.text.okButton = editing ? "Save" : "Import";
+				$scope.text.cancelButton = "Close";
+
+				$scope.filePath = $scope.text.filePath;
+
+				var $browseButton = $("<input type='file'></input>");
+				var updateScope;
+
+				$browseButton.on("change", function() {
+					
+					updateScope($browseButton.val());
+					$scope.$apply();
+				})
+
+				$scope.upload = function() {
+					$browseButton.val(null);
+					updateScope = function(val) {
+						$scope.filePath = val;
+					}
+					$browseButton.click();
+				}
+
+				var toggleOk = function() {
+					var disabled = $scope.filePath == null || $scope.filePath == $scope.text.filePath || $("#domainIdText").val().length == 0;
+					$("#importDialog_accept").attr("disabled", disabled);
+				}
+
+				$scope.$watch("filePath", toggleOk);
+				$("#domainIdText").on("keyup", toggleOk);
+				$("#importDialog_accept").attr("disabled", true);
+
+				$scope.headers = [$scope.text.fileName];
+				$scope.rows = [];
+
+				$scope.okButton = function() {
+					// Submit data for import or saving changes
+				}
+
+				$scope.add = function() {
+					$browseButton.val(null);
+					updateScope = function(val) {
+						$scope.rows.push([val]);
+						$scope.selectedRow = null;
+					}
+					$browseButton.click();
+				}
+
+				$scope.selectedRow = null;
+				$scope.onselect = function($event, $index, $item) {
+					$scope.selectedRow = $item;
+				}
+
+				$scope.remove = function() {
+					if($scope.selectedRow == null) {
+						return;
+					}
+
+					for (var i = 0; i < $scope.rows.length; i++) {
+						if ($scope.rows[i][0] == $scope.selectedRow[0]) {
+							$scope.rows.splice(i, 1);		
+						}
+					}
+				}
+			}])
 
 		$controllerProvider("NewDataSourceController", ["$scope", "ManageDataSourceService",
 			function($scope, ManageDataSourceService) {

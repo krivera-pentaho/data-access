@@ -87,6 +87,32 @@ define(function() {
 						alert("fail");
 					});
 			}
+
+			this.getAnalysisDatasourceInfo = function(successCallback) {
+				$http({method: 'GET', url: 'plugin/data-access/api/datasource/pentaho_operations_mart/getAnalysisDatasourceInfo'}).
+					success(function(data, status, headers, config) {
+					    var maps = [];
+
+						var info = data.split(";");
+						for (key in info) {
+							var item = info[key].split("=");
+
+							while(item[1].search('"') > -1) {
+								item[1] = item[1].replace('"', '');
+							}
+
+							maps.push({
+								name: item[0],
+								value: item[1]
+							});
+						}
+
+						successCallback(maps);
+					}).
+					error(function(data, status, headers, config) {
+						alert("fail");
+					});
+			}
 		}]);
 	}
 

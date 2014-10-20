@@ -16,7 +16,7 @@
 		</div>
 
 		<div class="data-scroll-container">
-			<div class="row-fluid data {{$even ? 'even' : 'odd'}}" ng-click="select($event, $index)" ng-repeat="row in rowArray | orderBy:predicate:reverse | filter:search">
+			<div class="row-fluid data {{$even ? 'even' : 'odd'}}" ng-click="select($event, $index, row)" ng-repeat="row in rowArray | orderBy:predicate:reverse | filter:search">
 				<div class="span{{12 / headerArray.length}} content-cell cell" title="{{cell}}" ng-repeat="cell in row">{{cell}}</div>
 			</div>
 		</div>

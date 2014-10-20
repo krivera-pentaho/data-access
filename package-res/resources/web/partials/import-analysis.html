@@ -1,8 +1,8 @@
-<div id="import-analysis" class="pentaho-dialog data-access-dialog angular-dialog bootstrap" draggable="import-analysis-title">
+<div id="import-analysis" class="pentaho-dialog data-access-dialog angular-dialog bootstrap import-dialog container-fluid" draggable="import-analysis-title">
 	<div class="row-fluid">
 		<div id="import-analysis-title" class="span12 Caption angular-dialog-title">{{text.title}}</div>
 	</div>
-	<div id="import-analysis-body">
+	<div id="import-analysis-body" class="body">
 		<div id="file-path-container" class="row-fluid">
 			<div class="span12">
 				<div class="pad-left" id="file-path-title">{{text.mondrianFile}}</div>
@@ -41,7 +41,7 @@
 		</div>
 		<div class="row-fluid">
 			<div class="span12 button-bar">
-				<button id="importDialog_accept" class="pentaho-button disabled">{{text.okButton}}</button>
+				<button id="importDialog_accept" class="pentaho-button" ng-click="okButton()">{{text.okButton}}</button>
 				<button id="importDialog_cancel" class="pentaho-button" ng-click="goto('/data-access/manage-data-sources')">{{text.cancelButton}}</button>	
 			</div>
 		</div>

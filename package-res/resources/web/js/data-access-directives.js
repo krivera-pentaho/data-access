@@ -35,6 +35,8 @@ define(function() {
 							$scope.showNoDataSourceSelectedDlg = true;
 							return;
 						}
+
+						$scope.selectedData.mode = "edit";
 						
 						if ($scope.selectedData.type == "JDBC") {
 							$scope.goto('/data-access/edit-data-source');
@@ -51,13 +53,17 @@ define(function() {
 							$scope.showNoDataSourceSelectedDlg = true;
 							return;
 						}
+
+						// Make delete call
 					}
 
 					$scope.export = function() {
 						if (!$scope.selectedData) {
 							$scope.showNoDataSourceSelectedDlg = true;
 							return;
-						}	
+						}
+
+						// Make export call
 					}
 
 					$scope.importAnalysis = function() {
@@ -65,6 +71,7 @@ define(function() {
 					}
 
 					$scope.importMetadata = function() {
+						$scope.goto('/data-access/import-metadata');
 					}
 					
 					$scope.newConnection = function() {
@@ -254,12 +261,12 @@ define(function() {
 						return reverse ? "pentaho-upbutton" : "pentaho-downbutton";	
 					}
 
-					$scope.select = function($event, $index) {
+					$scope.select = function($event, $index, $item) {
 						$($event.target).closest(".custom-table").find(".data").removeClass("selected");
 						$($event.currentTarget).addClass("selected");
 
 						if ($scope.onSelect) {
-							$scope.onSelect({event: $event, index: $index});	
+							$scope.onSelect({event: $event, index: $index, item: $item});	
 						}
 					}
 

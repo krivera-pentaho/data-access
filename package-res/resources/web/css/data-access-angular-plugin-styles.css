@@ -53,7 +53,7 @@
 	padding-left: 0px;
 }
 
-#import-analysis.angular-dialog {
+#import-analysis.import-dialog, #import-metadata.import-dialog {
 	width: 464px;
 	margin-left: -232px;
 
@@ -61,7 +61,7 @@
 	margin-top: -150px;
 }
 
-#import-analysis #uploadFileLabel {
+.import-dialog #uploadFileLabel {
 	border: 1px solid #cbdde8;
 	vertical-align: middle;
 	height: 18px !important;
@@ -71,7 +71,7 @@
 	display: inline-block;
 }
 
-#import-analysis {
+.import-dialog {
 	color: #777;
 }
 
@@ -86,7 +86,7 @@
 	margin-bottom: 0px;
 }
 
-#import-analysis #uploadAnalysisButton {
+#import-analysis #uploadAnalysisButton, #import-metadata #uploadMetadataButton {
 	display: inline-block;
 }
 
@@ -94,7 +94,7 @@
 	line-height: 20px;
 }
 
-#import-analysis .button-bar {
+.import-dialog .button-bar {
 	text-align: right;
 	margin-top: 30px;
 	margin-bottom: 10px;
@@ -104,7 +104,7 @@
 	display: inline-block;
 }
 
-#import-analysis-body {
+.import-dialog .body {
 	padding-left: 25px;
 }
 
@@ -112,11 +112,11 @@
 	width: 400px;
 }
 
-#import-analysis #file-path-title, #import-analysis #file-path-container {
+.import-dialog #file-path-title, .import-dialog #file-path-container {
 	margin-bottom: 10px;
 }
 
-#import-analysis #file-path-container {
+.import-dialog #file-path-container {
 	margin-top: 20px;
 }
 
@@ -137,12 +137,16 @@
 	margin-bottom: 5px;
 }
 
-#import-analysis #editButton, #import-analysis #addButton, #import-analysis #removeButton {
+.import-dialog #editButton, .import-dialog #addButton, .import-dialog #removeButton {
 	float: right;
 }
 
-#manual-parameters-table .data-scroll-container{
+#manual-parameters-table .data-scroll-container, #localized-bundles-table .data-scroll-container{
 	height: 119px;
+}
+
+.import-dialog.pentaho-dialog .custom-table {
+	padding-left: 0px;
 }
 
 #add-params .button-bar {
@@ -155,6 +159,10 @@
 
 #add-params input {
 	width: 100%;
+}
+
+#import-metadata #domainIdText {
+	width: 400px;
 }
 
 /*
